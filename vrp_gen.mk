@@ -48,7 +48,7 @@ LibPath                := "$(LibraryPathSwitch)."
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects=$(IntermediateDirectory)/bitbangM$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigIntegerUtils$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsignedInABase$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigInteger$(ObjectSuffix) $(IntermediateDirectory)/GTGen$(ObjectSuffix) $(IntermediateDirectory)/MatrixGen$(ObjectSuffix) $(IntermediateDirectory)/gen_main$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/bitbangM$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigIntegerUtils$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsignedInABase$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigInteger$(ObjectSuffix) $(IntermediateDirectory)/GTGen$(ObjectSuffix) $(IntermediateDirectory)/MatrixGen$(ObjectSuffix) $(IntermediateDirectory)/PermutationsGen$(ObjectSuffix) $(IntermediateDirectory)/gen_main$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -76,6 +76,14 @@ $(IntermediateDirectory)/bitbangM$(DependSuffix): bitbangM.cpp
 $(IntermediateDirectory)/bitbangM$(PreprocessSuffix): bitbangM.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/bitbangM$(PreprocessSuffix) "./bitbangM.cpp"
 
+$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(ObjectSuffix): PermutationAndConmbinationHelpers.cpp $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "./PermutationAndConmbinationHelpers.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(DependSuffix): PermutationAndConmbinationHelpers.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(ObjectSuffix) -MF$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(DependSuffix) -MM "./PermutationAndConmbinationHelpers.cpp"
+
+$(IntermediateDirectory)/PermutationAndConmbinationHelpers$(PreprocessSuffix): PermutationAndConmbinationHelpers.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(PreprocessSuffix) "./PermutationAndConmbinationHelpers.cpp"
+	
 $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix): bigint/BigUnsigned.cc $(IntermediateDirectory)/bigint_BigUnsigned$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "./bigint/BigUnsigned.cc" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/bigint_BigUnsigned$(DependSuffix): bigint/BigUnsigned.cc
@@ -124,6 +132,14 @@ $(IntermediateDirectory)/MatrixGen$(DependSuffix): MatrixGen.cpp
 $(IntermediateDirectory)/MatrixGen$(PreprocessSuffix): MatrixGen.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/MatrixGen$(PreprocessSuffix) "./MatrixGen.cpp"
 
+$(IntermediateDirectory)/PermutationsGen$(ObjectSuffix): PermutationsGen.cpp $(IntermediateDirectory)/PermutationsGen$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "./PermutationsGen.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/PermutationsGen$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/PermutationsGen$(DependSuffix): PermutationsGen.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/PermutationsGen$(ObjectSuffix) -MF$(IntermediateDirectory)/PermutationsGen$(DependSuffix) -MM "./PermutationsGen.cpp"
+
+$(IntermediateDirectory)/PermutationsGen$(PreprocessSuffix): PermutationsGen.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/PermutationsGen$(PreprocessSuffix) "./PermutationsGen.cpp"
+
 $(IntermediateDirectory)/gen_main$(ObjectSuffix): gen_main.cpp $(IntermediateDirectory)/gen_main$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "./gen_main.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/gen_main$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/gen_main$(DependSuffix): gen_main.cpp
@@ -141,6 +157,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/bitbangM$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/bitbangM$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/bitbangM$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/bigint_BigUnsigned$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/bigint_BigUnsigned$(PreprocessSuffix)
@@ -159,6 +178,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/MatrixGen$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/MatrixGen$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/MatrixGen$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationsGen$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationsGen$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/PermutationsGen$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/gen_main$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/gen_main$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/gen_main$(PreprocessSuffix)
