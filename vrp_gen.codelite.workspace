@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="vrp_gen" Database="./vrp_gen.tags">
+  <Project Name="vrp_gen" Path="vrp_gen.project" Active="Yes"/>
+  <Project Name="vrp_dist" Path="vrp_dist.project"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Project Name="vrp_gen" ConfigName="Debug"/>
+      <Project Name="vrp_dist" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="vrp_gen" ConfigName="Release"/>
+      <Project Name="vrp_dist" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

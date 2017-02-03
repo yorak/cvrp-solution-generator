@@ -1,0 +1,3 @@
+[submodule "bigint"]
+	path = bigint
+	url = https://mattmccutchen.net/bigint/bigint.git/
