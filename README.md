@@ -1,4 +1,4 @@
-`0 0
+```0 0
 
 1 1
 
@@ -37,7 +37,7 @@
 18 79535575126745632
 
 19 1715658099715217584
-`
+```
 
 # CVRP solution generator
 The tool offers three alternative methods to generate or enumerate all possible solutions to a VRP problem. This is a feasible approach to inspect problems smaller than 11 customers. If one has a free CPU and time 11, 12, 13 have sensible enumeration times.
