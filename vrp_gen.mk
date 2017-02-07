@@ -48,7 +48,7 @@ LibPath                := "$(LibraryPathSwitch)."
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects=$(IntermediateDirectory)/bitbangM$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigIntegerUtils$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsignedInABase$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigInteger$(ObjectSuffix) $(IntermediateDirectory)/GTGen$(ObjectSuffix) $(IntermediateDirectory)/MatrixGen$(ObjectSuffix) $(IntermediateDirectory)/PermutationsGen$(ObjectSuffix) $(IntermediateDirectory)/gen_main$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/bitbangM$(ObjectSuffix) $(IntermediateDirectory)/PermutationAndConmbinationHelpers$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsigned$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigIntegerUtils$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigUnsignedInABase$(ObjectSuffix) $(IntermediateDirectory)/bigint_BigInteger$(ObjectSuffix) $(IntermediateDirectory)/GTGen$(ObjectSuffix) $(IntermediateDirectory)/MatrixGen$(ObjectSuffix) $(IntermediateDirectory)/PermutationsGen$(ObjectSuffix) $(IntermediateDirectory)/gen_main$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
