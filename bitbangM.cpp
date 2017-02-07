@@ -1,15 +1,7 @@
 /* This file describes the API of an boolean symmetric matrix */
 
-#include "bigint/BigUnsigned.hh"
-#include "bigint/BigIntegerUtils.hh"
+#include "bigint/BigIntegerLibrary.hh"
 #include "bitbangM.h"
-
-//class CBBMatrix {
-//private:
-//	int _N;
-//	BigUnsigned _M;
-//	BigUnsigned* _bitmasks;
-//  BigUnsigned  _last_value;
 	
 CBBMatrix::CBBMatrix(int N) :
 _N(N), _M(0), _bitmasks(NULL), _last_value(0)

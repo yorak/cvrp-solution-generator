@@ -1,10 +1,9 @@
 #include "MatrixGen.h"
 
 #include <stdio.h>
-#include <vector>
 
-#include "bitbangM.h"
 #include "includes.h"
+#include "bitbangM.h"
 
 /*
  Validates some constraints of the solution:
@@ -148,11 +147,11 @@ Solution* _matrixToSolution(CBBMatrix& M)
 	}
 }
 
-int generate_solutions_M(int N)
+unsigned long long generate_solutions_M(int N)
 {
 	CBBMatrix M(N+1);
 	Solution* psol = NULL;
-	int nsols = 0;
+	unsigned long long nsols = 0;
 		
     while (M.next_value())
 	{

@@ -1,10 +1,13 @@
 #include <stdlib.h> 
 #include <stdio.h>
 #include <string> 
+#include <iomanip>  
 
+#include "bigint/BigIntegerLibrary.hh"
 #include "MatrixGen.h"
 #include "GTGen.h"
 #include "PermutationsGen.h"
+
 
 
 void print_usage()
@@ -20,7 +23,7 @@ void print_usage()
 */
 int main(int argc, char **argv)
 {
-	int possible_sols = 0;
+	unsigned long long possible_sols = 0;
 
 	int N = 3;
 	std::string method = "permutations";
@@ -60,7 +63,7 @@ int main(int argc, char **argv)
 		exit(-1);
 	}
 #ifndef PRINT_SOLUTIONS
-	std::cerr << possible_sols << std::endl;
+	std::cout << std::setprecision(30) << possible_sols << std::endl;
 #endif
 #ifdef _DEBUG
 	getchar();

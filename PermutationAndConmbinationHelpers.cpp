@@ -1,6 +1,7 @@
-#include "PermutationAndConmbinationHelpers.h"
-#include <vector>
 #include <algorithm> 
+
+#include "PermutationAndConmbinationHelpers.h"
+#include "includes.h"
 
 CnCr::CnCr(int fromN, int takeK)
 {

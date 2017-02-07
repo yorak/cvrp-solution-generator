@@ -3,7 +3,7 @@
 
 /* This file describes the API of an boolean symmetric matrix */
 
-#include "bigint/BigUnsigned.hh"
+#include "bigint/BigIntegerLibrary.hh"
 #include <iostream>
 
 class CBBMatrix {
