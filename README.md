@@ -1,4 +1,4 @@
-![solutions for cvrp][cvrp4_sols_sml.png]
+![solutions for cvrp](cvrp4_sols_sml.png)
 *All possible solutions for a symmetric CVRP N=4*
 
 # CVRP solution generator
