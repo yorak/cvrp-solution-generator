@@ -1,11 +1,11 @@
-#include "PermutationsGen.h"
-#include "includes.h"
-#include "PermutationAndConmbinationHelpers.h"
-
 #include <stdio.h>
 #include <iostream>
-#include <vector>
 #include <algorithm> 
+
+#include "includes.h"
+#include "PermutationsGen.h"
+#include "PermutationAndConmbinationHelpers.h"
+
 
 
 #define vint std::vector<int>::size_type
@@ -18,7 +18,7 @@ and N is number of customers in the VRP
 */
 
 
-int _permutations_of_remaining(int N,
+unsigned long long _permutations_of_remaining(int N,
 	vint non_degenerate_route_count, // without the single customer routes
 	std::vector<int>& route_starts,
 	std::vector<int>& route_ends,
@@ -41,7 +41,7 @@ int _permutations_of_remaining(int N,
 		return 1;
 	}
 
-	int nsols = 0;
+	unsigned long long nsols = 0;
 	do {
 		// Go trough all possible divisions of remaining nodes
 		//  to the routes of route_start_nodes.
@@ -97,11 +97,15 @@ int _permutations_of_remaining(int N,
 	return nsols;
 }
 
-int generate_solutions_P(int N)
+unsigned long long generate_solutions_P(int N)
 {
-	int nsols = 0;
+	unsigned long long nsols = 0;
 	
 	for (vint number_of_routes = 1; number_of_routes != N + 1; number_of_routes++) {
+#ifdef _EXDEBUG
+		std::cout<< "#R:"<<number_of_routes<<std::endl;
+#endif
+
 		// All possible ways of starting the 
 
 		CnCr choose_tour_starts(N, number_of_routes);

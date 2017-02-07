@@ -1,11 +1,11 @@
 #ifndef MATRIXGEN_H
 #define MATRIXGEN_H
 
-#include <vector>
+#include "includes.h"
 #include "bitbangM.h"
 
 // The interface
-int generate_solutions_M(int N);
+unsigned long long generate_solutions_M(int N);
 
 // Helper functions
 bool _seemsValidSolution(CBBMatrix& M);

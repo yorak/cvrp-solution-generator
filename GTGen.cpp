@@ -3,10 +3,10 @@
 #include <iostream>
 #include <stdlib.h> 
 #include <stdio.h>
-
 #include <algorithm>
 
 #include "includes.h"
+#include "bigint/BigIntegerLibrary.hh"
 
 /*
 In this file a giant tour and hamiltonian cyles based recursive solution
@@ -38,7 +38,7 @@ The actual generation procedure that takes a hamiltonian cycle fullTour
  ways. fromIdx and toIdx are used by the recusion to set the section
  of the giant tour that is modified.
 */
-int _gen_routes(Solution& fullTour, int fromIdx, int toIdx)
+unsigned long long _gen_routes(Solution& fullTour, int fromIdx, int toIdx)
 {
     if (toIdx-fromIdx<2)
 	{
@@ -46,7 +46,7 @@ int _gen_routes(Solution& fullTour, int fromIdx, int toIdx)
         return 0;
 	}
  
-	int solution_count = 0;
+	unsigned long long solution_count = 0;
 	int tlen = fullTour.size();
 	for(int putIdx=fromIdx; putIdx<toIdx+1 ; ++putIdx)
 	{
@@ -103,10 +103,10 @@ This is a gian tour and hamiltonian cycle based generator of VRP
  a giant tour (GT) endcoding of solutions to enumerate all valid
  solutions to a VRP.
 */
-int generate_solutions_gt(int N)
+unsigned long long generate_solutions_gt(int N)
 {
 	bool first_print = true;
-	int solution_counter = 0;
+	unsigned long long solution_counter = 0;
 	
 	//std::cout << "["; // << std::endl;
 	
