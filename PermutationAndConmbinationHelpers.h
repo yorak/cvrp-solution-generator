@@ -44,14 +44,14 @@ private:
 	int route_count;
 	// helper method that validates the current configuration and advances
 	//  with next_permutation until a valid is found.
-	bool find_first_valid_permutation();
+	bool is_valid_permutation();
 public:
 	RouteEndPermutator(int nodes, int routes);
 	bool initialize_permutator(std::vector<int>& remaining_nodes, std::vector<int>& start_nodes);
 	std::vector<int>* get_end_nodes();
 	int get_nondegenerate_route_count();
 	// skips all degerate configurations and 
-	bool next_permutation();
+	bool next_valid_permutation();
 };
 
 

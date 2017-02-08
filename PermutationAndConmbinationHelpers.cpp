@@ -135,7 +135,16 @@ bool RouteEndPermutator::initialize_permutator(std::vector<int>& remaining_nodes
 			current_nondegenerate_route_count--;
 		}
 	}
-	return find_first_valid_permutation();
+
+	// (Ab)use next_permutation to start with a valid perumuation
+	if (is_valid_permutation())
+	{
+		return true;
+	}
+	else
+	{
+		return next_valid_permutation();
+	}
 }
 
 
@@ -155,7 +164,7 @@ int RouteEndPermutator::get_nondegenerate_route_count()
 	return current_nondegenerate_route_count;
 }
 
-bool RouteEndPermutator::find_first_valid_permutation()
+bool RouteEndPermutator::is_valid_permutation()
 {
 	// check that no end is used twice and there is at least one nondegenerate
 	current_nondegenerate_route_count = route_count;
@@ -164,7 +173,7 @@ bool RouteEndPermutator::find_first_valid_permutation()
 	{
 		int end = (*(current_route_end_nodes[ri]));
 		// If this end node is already taken, skip this permutation
-		if (taken[end]) return next_permutation();
+		if (taken[end]) return false;
 		taken[end] = true;
 
 		if (end == (*route_starts)[ri])
@@ -175,25 +184,27 @@ bool RouteEndPermutator::find_first_valid_permutation()
 	// Skip the permutations with all degenerate routes
 	if (current_nondegenerate_route_count == 0 && node_count - route_count > 0)
 	{
-		return next_permutation();
+		return false;
 	}
 	// no doubly used end nodes and some non-degenerate routes to fill with remaining
 	return true;
 }
 
-bool RouteEndPermutator::next_permutation()
+bool RouteEndPermutator::next_valid_permutation()
 {
-	current_route_end_nodes[0]++;
-	int carry_idx = 0;
-	while (current_route_end_nodes[carry_idx] == valid_end_nodes_for_routes[carry_idx].end())
-	{
-		current_route_end_nodes[carry_idx] = valid_end_nodes_for_routes[carry_idx].begin();
-		if (++carry_idx >= route_count)
+	do {
+		current_route_end_nodes[0]++;
+		int carry_idx = 0;
+		while (current_route_end_nodes[carry_idx] == valid_end_nodes_for_routes[carry_idx].end())
 		{
-			return false;
+			current_route_end_nodes[carry_idx] = valid_end_nodes_for_routes[carry_idx].begin();
+			if (++carry_idx >= route_count)
+			{
+				return false;
+			}
+			current_route_end_nodes[carry_idx]++;
 		}
-		current_route_end_nodes[carry_idx]++;
-	}
-	// check if this permutation is valid, and if not, call next_permutation again
-	return find_first_valid_permutation();
+		// check if this permutation is valid, and if not, step current_route_end_nodes again
+	} while (!is_valid_permutation());
+	return true;
 }

@@ -15,6 +15,8 @@ to a unconstrained VRP is presented here.
 Usage:
 solutions is a list of routes in form
 and N is number of customers in the VRP
+
+# todo: reuse vectors
 */
 
 
@@ -154,7 +156,7 @@ unsigned long long generate_solutions_P(int N)
 
 					delete remaining;
 					delete tour_ends;
-				} while (route_end_permutator.next_permutation());
+				} while (route_end_permutator.next_valid_permutation());
 			}
 #ifdef _DEBUG
 			else
