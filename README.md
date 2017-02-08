@@ -1,3 +1,14 @@
+![solutions for cvrp](cvrp4_sols_sml.png)
+
+*All possible solutions for a symmetric CVRP N=4*
+
+# CVRP solution generator
+The tool offers three alternative methods to generate or enumerate all possible solutions to a VRP problem. This is a feasible approach to inspect problems smaller than 11 customers. If one has a free CPU and time 11, 12, 13 have sensible enumeration times.
+
+Please note that solving CVRPs through enumeration is not an efficient or recommended way of solving these problems. This tool was used mainly in visualization of tiny CVRP instances. If you want to solve these problems look into mixed integer programming (MIP), branch-and-bound, column generation and similar combinatorial optimization methods. And if you do not actually need gurarantee the optimality, which is the case in most practical applications, look into construction heuristics, local search heuristics, and metaheuristics. 
+
+The tool is written in C++ for extra speed, but there are surely room to further optimize the procedures if someone requires even better performance. Currently the tool is able to output around 77 000 solutions per wall time second which includes counting of the generated solutions with `wc -l` on Windows 7, MSVC++ 12.0, and a i5 M 460 @ 2.53GHz powered Dell laptop. By omitting the `PRINT_SOLUTIONS` preprocessing directive and the tool only internally counts the solutions. Then we can enumerate over 5M solutions per wall second on this i5 setup. Thus, the generator is heavily bottlenecked by the input/output. With g++ 5.4.0 (`-O3`), Ubuntu 16.04, and Intel(R) Xeon(R) CPU E5-2673 @ 2.40GHz the tool can enumerate over 14M solutions per second. If one would like to go even faster, it would be trivial make the generators multithreaded. Pull requests implementing this are welcome.
+
 ```
 0 0
 1 1
@@ -13,20 +24,8 @@
 11 187638716
 12 2614602112
 13 39310384192
-14 634148436104
-15 10923398137576
-16 200069534481616
-17 3882002527006352
-18 79535575126745632
-19 1715658099715217584
 ```
-
-# CVRP solution generator
-The tool offers three alternative methods to generate or enumerate all possible solutions to a VRP problem. This is a feasible approach to inspect problems smaller than 11 customers. If one has a free CPU and time 11, 12, 13 have sensible enumeration times.
-
-Please note that solving CVRPs through enumeration is not an efficient or recommended way of solving these problems. This tool was used mainly in visualization of tiny CVRP instances. If you want to solve these problems look into mixed integer programming (MIP), branch-and-bound, column generation and similar combinatorial optimization methods. And if you do not actually need gurarantee the optimality, which is the case in most practical applications, look into construction heuristics, local search heuristics, and metaheuristics. 
-
-The tool is written in C++ for extra speed, but there are surely room to further optimize the procedures if someone requires even better performance. Currently the tool is able to output around 77 000 solutions per wall time second which includes counting of the generated solutions with `wc -l` on Windows 7 and a i5 Dell laptop. By omitting the `PRINT_SOLUTIONS` preprocessing directive and the tool only internally counts the solutions. Then we can enumerate over 5M solutions per wall second. Thus, the generator is heavily bottlenecked by the input/output. It would be trivial to enumerate even faster by making the generators multithreaded. Pull requests implementing this are welcome.
+*The solution counts are validated upto N=13*
 
 ## The generator methods
 
