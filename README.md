@@ -30,7 +30,7 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 16 | 200069534481616    |  |   | 
 
 
-*The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server *
+*The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
 
 ## The generator methods
 
