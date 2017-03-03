@@ -10,22 +10,25 @@ Please note that solving CVRPs through enumeration is not an efficient or recomm
 The tool is written in C++ for extra speed, but there are surely room to further optimize the procedures if someone requires even better performance. Currently the tool is able to output around 77 000 solutions per wall time second which includes counting of the generated solutions with `wc -l` on Windows 7, MSVC++ 12.0, and a i5 M 460 @ 2.53GHz powered Dell laptop. By omitting the `PRINT_SOLUTIONS` preprocessing directive and the tool only internally counts the solutions. Then we can enumerate over 5M solutions per wall second on this i5 setup. Thus, the generator is heavily bottlenecked by the input/output. With g++ 5.4.0 (`-O3`), Ubuntu 16.04, and Intel(R) Xeon(R) CPU E5-2673 @ 2.40GHz the tool can enumerate over 14M solutions per second. If one would like to go even faster, it would be trivial make the generators multithreaded. Pull requests implementing this are welcome.
 
 ```
-0 0
-1 1
-2 2
-3 7
-4 34
-5 206
-6 1486
-7 12412
-8 117692
-9 1248004
-10 14625856
-11 187638716
-12 2614602112
-13 39310384192
+N | CVRP solution count | verified with `permutations` | verified with `giant_tours` | verified with `matrix`  
+1 | 1                   | X (0.00s) | ! (0.00s) | X (0.00s)
+2 | 2                   | X (0.00s) | X (0.00s) | X (0.00s)
+3 | 7                   | X (0.00s) | X (0.00s) | X (0.00s)
+4 | 34                  | X (0.00s) | X (0.00s) | X (0.00s)
+5 | 206                 | X (0.00s) | X (0.00s) | X (0.00s)
+6 | 1486                | X (0.00s) | X (0.00s) | X (0.04s)
+7 | 12412               | X (0.00s) | X (0.00s) | X (0.47s)
+8 | 117692              | X (0.01s) | X (0.01s) | X (6.45s)
+9 | 1248004             | X (0.10s) | X (0.11s) | X (1m36s)
+10 | 14625856           | X (1.07s) | X (1.40s) | 
+11 | 187638716          | X (13.2s) | X (18.5s) | 
+12 | 2614602112         | X (2m59s) | X (4m20s) | 
+13 | 39310384192        |   | X (1h6m) | 
+14 | 634148436104       |  | X (18h6m) | 
+15 | 10923398137576     |  | X (13d1h52m) |
+16 | 200069534481616    |  |   | 
 ```
-*The solution counts are validated upto N=13*
+*The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server *
 
 ## The generator methods
 
