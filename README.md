@@ -25,7 +25,7 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 11 | 187638716          | X (13.2s)  | X (18.5s) | 
 12 | 2614602112         | X (2m59s)  | X (4m20s) | 
 13 | 39310384192        | X (44m26s) | X (1h6m) | 
-14 | 634148436104       |  | X (18h6m) | 
+14 | 634148436104       | X (11h59m) | X (18h6m) | 
 15 | 10923398137576     |  | X (13d1h52m) |
 16 | 200069534481616    |  |   | 
 
