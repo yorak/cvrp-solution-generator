@@ -27,7 +27,7 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 13 | 39310384192        | X (44m26s) | X (1h6m) | 
 14 | 634148436104       | X (11h59m) | X (18h6m) | 
 15 | 10923398137576     | X (8d16h) | X (13d2h) |
-16 | 200069534481616    |  |   | 
+16 | 200069534481616    | - (est.160d) |   | 
 
 
 *The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
