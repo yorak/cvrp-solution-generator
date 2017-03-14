@@ -125,7 +125,7 @@ unsigned long long generate_solutions_gt(int N)
         // Ordered so that the first is always smaller than the last
 		Solution_iter first = pm.begin();
 		Solution_iter last = (++pm.rbegin()).base();
-        if ((*first)<(*last))
+        if ((*first)<=(*last))
 		{
 			Solution giant_tour_solution;
 			giant_tour_solution.reserve(N+2);
