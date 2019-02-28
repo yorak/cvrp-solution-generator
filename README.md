@@ -3,12 +3,16 @@
 *All possible solutions for a symmetric CVRP N=4*
 
 # CVRP solution generator
-The tool offers three alternative methods to generate or enumerate all possible solutions to a VRP problem. This is a feasible approach to inspect problems smaller than 11 customers. If one has a free CPU and time 11, 12, 13 have sensible enumeration times.
+The tool comes with three alternative methods to generate (enumerate) all possible solutions of a vehicle routing problem. This brute force approach is feasbible when faced with problems less than 11 customers. If one has the CPU time and is not in a hurry, problems with 11, 12, and 13 customers still have sensible enumeration times.
 
-Please note that solving CVRPs through enumeration is not an efficient or recommended way of solving these problems. This tool was used mainly in visualization of tiny CVRP instances. If you want to solve these problems look into mixed integer programming (MIP), branch-and-bound, column generation and similar combinatorial optimization methods. And if you do not actually need gurarantee the optimality, which is the case in most practical applications, look into construction heuristics, local search heuristics, and metaheuristics. 
+Please note that solving CVRPs through enumeration is not considered to be an efficient (nor recommended) way of solving these problems. This tool was written mainly for visualization of tiny CVRP instances. If one wants to solve these problems, please look into ombinatorial optimization with mixed integer programming (MIP) including techniques such as branch-and-bound and column generation and similar. If one does not actually need gurarantee the finding the very best (optimal) solution, which is the case in most practical applications, please look into VRP construction heuristics, local search heuristics, and metaheuristics. 
 
-The tool is written in C++ for extra speed, but there are surely room to further optimize the procedures if someone requires even better performance. Currently the tool is able to output around 77 000 solutions per wall time second which includes counting of the generated solutions with `wc -l` on Windows 7, MSVC++ 12.0, and a i5 M 460 @ 2.53GHz powered Dell laptop. By omitting the `PRINT_SOLUTIONS` preprocessing directive and the tool only internally counts the solutions. Then we can enumerate over 5M solutions per wall second on this i5 setup. Thus, the generator is heavily bottlenecked by the input/output. With g++ 5.4.0 (`-O3`), Ubuntu 16.04, and Intel(R) Xeon(R) CPU E5-2673 @ 2.40GHz the tool can enumerate over 14M solutions per second. If one would like to go even faster, it would be trivial make the generators multithreaded. Pull requests implementing this are welcome.
 
+## Performance
+
+The tool is written in C++ for extra speed, but I acknowledge that there is surely room to further optimize the procedures. Currently the tool is able to output around 77 000 solutions per wall time second which includes counting of the generated solutions with `wc -l`. This was measured on a Windows 7 PC with MSVC++ 12.0, and a i5 M 460 @ 2.53GHz. If we do not define the `PRINT_SOLUTIONS` preprocessing directive the tool only internally counts the solutions andwe can enumerate over 5M solutions per wall second on this i5 setup. Thus, the generator is already heavily bottlenecked by the input/output. With g++ 5.4.0 (`-O3`), Ubuntu 16.04, and Intel(R) Xeon(R) CPU E5-2673 @ 2.40GHz the tool can enumerate over 14M solutions per second. If one would like to go even faster, it would be trivial make the generators multithreaded. Pull requests implementing this are welcome.
+
+## Results
 
 N | CVRP solution count | verified with `permutations` | verified with `giant_tours` | verified with `matrix`  
 --- | --- | --- | --- | --- 
@@ -32,7 +36,7 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 
 *The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
 
-## The generator methods
+## Details on the Generator Methods
 
 Of the three the `permutations` based method is the fastest with the `giant_tour` coming as the close second. The `matrix` method is the slowest. A more complete explanation of the methods can be found from the paper Rasku et al. 2013 [1], but the methods are also summarized in the following list. *N* is used to denote the number of customers.
 * `permutations` selects all possible (valid) start and end nodes (combinations) for all possible route counts 1..*N*. The remaining points are distributed to the routes in all possible permutations.
