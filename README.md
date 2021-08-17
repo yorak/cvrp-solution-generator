@@ -3,7 +3,7 @@
 *All possible solutions for a symmetric CVRP N=4*
 
 # CVRP solution generator
-The tool comes with three alternative methods to generate (enumerate) all possible solutions of a vehicle routing problem. This brute-force approach is feasbible when faced with problems less than 11 customers. If one has the CPU time and is not in a hurry, problems with 11, 12, and 13 customers still have sensible enumeration times.
+The tool comes with three alternative methods to generate (enumerate) all possible solutions of a vehicle routing problem (VRP). This brute-force approach is feasbible when faced with problems less than 11 customers. If one has the CPU time and is not in a hurry, problems with 11, 12, and 13 customers still have sensible enumeration times.
 
 Please note that solving CVRPs through enumeration is not considered to be an efficient (nor recommended) way of solving these problems. This tool was written mainly for visualization of tiny CVRP instances. If one wants to solve these problems, please look into ombinatorial optimization with mixed integer programming (MIP) including techniques such as branch-and-bound and column generation and similar. If one does not actually need gurarantee the finding the very best (optimal) solution, which is the case in most practical applications, please look into VRP construction heuristics, local search heuristics, and metaheuristics. 
 
