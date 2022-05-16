@@ -31,8 +31,9 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 13 | 39310384192        | X (44m26s) | X (1h6m) | 
 14 | 634148436104       | X (11h59m) | X (18h6m) | 
 15 | 10923398137576     | X (8d16h) | X (13d2h) |
-16 | 200069534481616?   | ? (~160d) |   | 
+16 | 200069534481616*   | * (~160d) |   | 
 
+*) The [1] contains a closed form formula for calculating the number of solutions to a CVRP of any size. There is a Python 2.7 script included in this repository to evaluate that formula. Also, as one can see, the script contains additional details of the different parts of the closed form.
 
 *The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
 
