@@ -33,7 +33,7 @@ N | CVRP solution count | verified with `permutations` | verified with `giant_to
 15 | 10923398137576     | X (8d16h) | X (13d2h) |
 16 | 200069534481616*   | * (~160d) |   | 
 
-*) The [1] contains a closed form formula for calculating the number of solutions to a CVRP of any size. There is a Python 2.7 [script](https://github.com/yorak/cvrp-solution-generator/Evaluate%20the%20formula%20for%20the%20number%20of%20possible%20solutions%20to%20a%20capacitated%20vehicle%20routing%20problem_py27.py) included in this repository to evaluate that formula. Also, as one can see, the script contains additional details of the different parts of the closed form.
+*) The [1] contains a closed form formula for calculating the number of solutions to a CVRP of any size. There is a Python 2.7 [script](Evaluate%20the%20formula%20for%20the%20number%20of%20possible%20solutions%20to%20a%20capacitated%20vehicle%20routing%20problem_py27.py) included in this repository to evaluate that formula. Also, as one can see, the script contains additional details of the different parts of the closed form.
 
 *The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
 
