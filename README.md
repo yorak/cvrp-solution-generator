@@ -16,26 +16,26 @@ The tool is written in C++ for extra speed, but I acknowledge that there is sure
 
 N | CVRP solution count | verified with `permutations` | verified with `giant_tours` | verified with `matrix`  
 --- | --- | --- | --- | --- 
-1 | 1                   | X (0.00s)  | X (0.00s) | X (0.00s)
-2 | 2                   | X (0.00s)  | X (0.00s) | X (0.00s)
-3 | 7                   | X (0.00s)  | X (0.00s) | X (0.00s)
-4 | 34                  | X (0.00s)  | X (0.00s) | X (0.00s)
-5 | 206                 | X (0.00s)  | X (0.00s) | X (0.00s)
-6 | 1486                | X (0.00s)  | X (0.00s) | X (0.04s)
-7 | 12412               | X (0.00s)  | X (0.00s) | X (0.47s)
-8 | 117692              | X (0.01s)  | X (0.01s) | X (6.45s)
-9 | 1248004             | X (0.10s)  | X (0.12s) | X (1m36s)
-10 | 14625856           | X (1.07s)  | X (1.40s) | X (25m36s)
-11 | 187638716          | X (13.2s)  | X (18.5s) | 
-12 | 2614602112         | X (2m59s)  | X (4m20s) | 
-13 | 39310384192        | X (44m26s) | X (1h6m) | 
-14 | 634148436104       | X (11h59m) | X (18h6m) | 
-15 | 10923398137576     | X (8d16h) | X (13d2h) |
-16 | 200069534481616*   | * (~160d) |   | 
+1 | 1                   | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.00s)
+2 | 2                   | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.00s)
+3 | 7                   | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.00s)
+4 | 34                  | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.00s)
+5 | 206                 | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.00s)
+6 | 1486                | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.04s)
+7 | 12412               | ✓ (0.00s)  | ✓ (0.00s) | ✓ (0.47s)
+8 | 117692              | ✓ (0.01s)  | ✓ (0.01s) | ✓ (6.45s)
+9 | 1248004             | ✓ (0.10s)  | ✓ (0.12s) | ✓ (1m36s)
+10 | 14625856           | ✓ (1.07s)  | ✓ (1.40s) | ✓ (25m36s)
+11 | 187638716          | ✓ (13.2s)  | ✓ (18.5s) | ✗
+12 | 2614602112         | ✓ (2m59s)  | ✓ (4m20s) | ✗
+13 | 39310384192        | ✓ (44m26s) | ✓ (1h6m)  | ✗
+14 | 634148436104       | ✓ (11h59m) | ✓ (18h6m) | ✗ 
+15 | 10923398137576     | ✓ (8d16h)  | ✓ (13d2h) | ✗
+16 | 200069534481616*   | ✗ (~160d)  | ✗         | ✗ 
 
-*) This number has not been empirically validated. It is estimated it would take some 160 days of single threaded enumeration effort. The [1] contains a closed form formula for calculating the number of solutions to a CVRP of any size. There is a Python 2.7 [script](Evaluate%20the%20formula%20for%20the%20number%20of%20possible%20solutions%20to%20a%20capacitated%20vehicle%20routing%20problem_py27.py) included in this repository to evaluate that formula. Also, as one can see, the script contains additional details of the different parts of the closed form.
+*) This number has not been empirically validated. It is estimated it would take some 160 days of single threaded enumeration effort. The [1] contains a closed form formula for calculating the number of solutions to a CVRP of any size. However, there is a Python 2.7 [script](Evaluate%20the%20formula%20for%20the%20number%20of%20possible%20solutions%20to%20a%20capacitated%20vehicle%20routing%20problem_py27.py) included in this repository to evaluate that formula and, thus, calculate the number of solutions without enumeration. As one can see, the script contains additional details of the different parts of the closed form.
 
-*The solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
+*All solution counts are validated on a Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz server*
 
 ## Details on the Generator Methods
 
